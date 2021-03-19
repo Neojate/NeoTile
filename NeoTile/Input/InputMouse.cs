@@ -2,12 +2,12 @@
 
 namespace NeoTile.Input
 {
-    public class InputMouse : Input
+    public class InputMouse
     {
         private static MouseState currentMouseState;
         private static MouseState lastMouseState;
 
-        public override void Update()
+        public static void Update()
         {
             lastMouseState = currentMouseState;
             currentMouseState = Mouse.GetState();

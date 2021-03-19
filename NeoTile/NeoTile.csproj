@@ -41,7 +41,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cinema\Camera.cs" />
-    <Compile Include="Input\Input.cs" />
     <Compile Include="Input\InputKeyBoard.cs" />
     <Compile Include="Input\InputMouse.cs" />
     <Compile Include="Input\MouseButton.cs" />

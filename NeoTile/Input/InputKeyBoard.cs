@@ -2,12 +2,12 @@
 
 namespace NeoTile.Input
 {
-    public class InputKeyBoard : Input
+    public class InputKeyBoard
     {
         private static KeyboardState currentKeyState;
         private static KeyboardState lastKeyState;
 
-        public override void Update()
+        public static void Update()
         {
             lastKeyState = currentKeyState;
             currentKeyState = Keyboard.GetState();
