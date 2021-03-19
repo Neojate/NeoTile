@@ -1,4 +1,6 @@
 ﻿
+using Microsoft.Xna.Framework.Graphics;
+
 namespace NeoTile.ScreenManager
 {
     public abstract class Screen
@@ -19,7 +21,7 @@ namespace NeoTile.ScreenManager
         public abstract void Update();
 
         //método abstracto necesario para el renderizado de la pantalla
-        public abstract void Draw();
+        public abstract void Draw(SpriteBatch spriteBatch);
 
 
     }

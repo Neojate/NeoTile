@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Collections.Generic;
 
 namespace NeoTile.ScreenManager
@@ -56,10 +57,10 @@ namespace NeoTile.ScreenManager
             }                
         }
 
-        public void Draw()
+        public void Draw(SpriteBatch spriteBatch)
         {
             foreach (Screen screen in screens.FindAll(s => s.State == ScreenState.Active))
-                screen.Draw();
+                screen.Draw(spriteBatch);
         }
 
         public Screen GetScreen(string screenName)
