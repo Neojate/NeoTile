@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cinema\Camera.cs" />
+    <Compile Include="Exceptions\SizeException.cs" />
     <Compile Include="Input\InputKeyBoard.cs" />
     <Compile Include="Input\InputMouse.cs" />
     <Compile Include="Input\MouseButton.cs" />
@@ -48,6 +49,14 @@
     <Compile Include="ScreenManager\Screen.cs" />
     <Compile Include="ScreenManager\ScreenManager.cs" />
     <Compile Include="ScreenManager\ScreenState.cs" />
+    <Compile Include="World\GameObject.cs" />
+    <Compile Include="World\IRenderizable.cs" />
+    <Compile Include="World\Size.cs" />
+    <Compile Include="World\Tile.cs" />
+    <Compile Include="World\TileOption.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Language\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
