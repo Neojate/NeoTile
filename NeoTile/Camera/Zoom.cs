@@ -11,9 +11,9 @@ namespace NeoTile.Camera
 
         public float Scale { get; set; } = 1f;
 
-        public float Speed { get; set; } = 0.01f;
+        public float Speed { get; set; } = 0.005f;
 
         public float MinZoom { get; set; } = 0.5f;
-        public float MaxZoom { get; set; } = 3f;
+        public float MaxZoom { get; set; } = 2f;
     }
 }
