@@ -11,14 +11,17 @@ namespace NeoTile.Camera
 
         public Vector2 Offset { get; set; }
 
-        public Zoom Zoom { get; set; }
+        public Zoom Zoom { get; set; } = new Zoom();
 
         public void HandleInput()
         {
             if (InputKeyboard.KeyDown(Zoom.KeyIn))
                 Zoom.Scale += Zoom.Speed;
+            
             else if (InputKeyboard.KeyDown(Zoom.KeyOut))
                 Zoom.Scale -= Zoom.Speed;
+
+            Zoom.Scale = MathHelper.Clamp(Zoom.Scale, Zoom.MinZoom, Zoom.MaxZoom);
         }
     }
 }
