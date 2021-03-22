@@ -2,7 +2,7 @@
 
 namespace NeoTile.Input
 {
-    public class InputKeyBoard
+    public class InputKeyboard
     {
         private static KeyboardState currentKeyState;
         private static KeyboardState lastKeyState;
