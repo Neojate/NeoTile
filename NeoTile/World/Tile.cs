@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using NeoTile.Camera;
 
 namespace NeoTile.World
 {
@@ -29,13 +30,18 @@ namespace NeoTile.World
             Position = position;
         }
 
-        public void Render(SpriteBatch spriteBatch)
+        public void Render(SpriteBatch spriteBatch, Camera.Camera camera)
         {
             spriteBatch.Draw(
                 Texture,
-                new Rectangle(Position.X * Size.Width, Position.Y * Size.Height, Size.Width, Size.Height),
+                new Vector2(Position.X * Size.Width * camera.Zoom.Scale - camera.Position.X, Position.Y * Size.Height * camera.Zoom.Scale - camera.Position.Y),
                 SourceRectangle,
-                BgColor
+                BgColor,
+                0f, 
+                Vector2.Zero,
+                camera.Zoom.Scale,
+                SpriteEffects.None,
+                0f
             );
         }
 
