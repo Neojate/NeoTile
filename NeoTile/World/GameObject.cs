@@ -15,9 +15,20 @@ namespace NeoTile.World
 
         public Color BgColor { get; set; } = Color.White;
 
-        public void Render(SpriteBatch spriteBatch)
+        public void Render(SpriteBatch spriteBatch, Camera.Camera camera)
         {
-            spriteBatch.Draw(Texture, new Rectangle(Position.X, Position.Y, Size.Width, Size.Height), SourceRectangle, BgColor);
+            //spriteBatch.Draw(Texture, new Rectangle(Position.X, Position.Y, Size.Width, Size.Height), SourceRectangle, BgColor);
+            spriteBatch.Draw(
+                Texture,
+                new Vector2(Position.X * TileOption.Size.Width * camera.Zoom.Scale - camera.Position.X, Position.Y * TileOption.Size.Height * camera.Zoom.Scale - camera.Position.Y),
+                SourceRectangle,
+                BgColor,
+                0f,
+                Vector2.Zero,
+                camera.Zoom.Scale,
+                SpriteEffects.None,
+                0f
+            );
         }
     }
 }

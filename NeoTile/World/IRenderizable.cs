@@ -4,6 +4,6 @@ namespace NeoTile.World
 {
     public interface IRenderizable
     {
-        void Render(SpriteBatch spriteBatch);
+        void Render(SpriteBatch spriteBatch, Camera.Camera camera);
     }
 }

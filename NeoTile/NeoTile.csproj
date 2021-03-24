@@ -40,6 +40,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Fonts.cs" />
+    <Compile Include="Assets\Textures.cs" />
     <Compile Include="Camera\Camera.cs" />
     <Compile Include="Camera\Zoom.cs" />
     <Compile Include="Exceptions\SizeException.cs" />
