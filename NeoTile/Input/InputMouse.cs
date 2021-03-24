@@ -1,9 +1,14 @@
 ﻿using Microsoft.Xna.Framework.Input;
+using System;
 
 namespace NeoTile.Input
 {
-    public class InputMouse
+    public sealed class InputMouse
     {
+        private static readonly Lazy<InputMouse> Lazy = new Lazy<InputMouse>(() => new InputMouse());
+
+        public static InputMouse Instance { get { return Lazy.Value; } }
+
         private static MouseState currentMouseState;
         private static MouseState lastMouseState;
 

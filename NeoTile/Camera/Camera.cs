@@ -11,14 +11,15 @@ namespace NeoTile.Camera
 
         public Zoom Zoom { get; set; } = new Zoom();
 
-        private InputKeyboard keyboard = InputKeyboard.Instance;
-
         public float Speed { get; set; } = 1f;
 
         public Keys Up { get; set; } = Keys.Up;
         public Keys Down { get; set; } = Keys.Down;
         public Keys Left { get; set; } = Keys.Left;
         public Keys Right { get; set; } = Keys.Right;
+
+        private InputKeyboard keyboard = InputKeyboard.Instance;
+        private InputMouse mouse = InputMouse.Instance;
 
         public void HandleInput()
         {
