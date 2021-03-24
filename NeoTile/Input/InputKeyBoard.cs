@@ -1,24 +1,30 @@
 ﻿using Microsoft.Xna.Framework.Input;
+using System;
 
 namespace NeoTile.Input
 {
-    public class InputKeyboard
+    public sealed class InputKeyboard
     {
-        private static KeyboardState currentKeyState;
-        private static KeyboardState lastKeyState;
 
-        public static void Update()
+        private static readonly Lazy<InputKeyboard> Lazy = new Lazy<InputKeyboard>(() => new InputKeyboard());
+
+        public static InputKeyboard Instance { get { return Lazy.Value; } }   
+
+        private KeyboardState currentKeyState;
+        private KeyboardState lastKeyState;
+
+        public void Update()
         {
             lastKeyState = currentKeyState;
             currentKeyState = Keyboard.GetState();
         }
 
-        public static bool KeyDown(Keys key)
+        public bool KeyDown(Keys key)
         {
             return currentKeyState.IsKeyDown(key);
         }
 
-        public static bool KeyPressed(Keys key)
+        public bool KeyPressed(Keys key)
         {
             return currentKeyState.IsKeyDown(key) && lastKeyState.IsKeyUp(key);
         }

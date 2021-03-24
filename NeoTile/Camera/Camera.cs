@@ -11,7 +11,7 @@ namespace NeoTile.Camera
 
         public Zoom Zoom { get; set; } = new Zoom();
 
-        public bool FreeMovement { get; set; } = true;
+        private InputKeyboard keyboard = InputKeyboard.Instance;
 
         public float Speed { get; set; } = 1f;
 
@@ -20,30 +20,28 @@ namespace NeoTile.Camera
         public Keys Left { get; set; } = Keys.Left;
         public Keys Right { get; set; } = Keys.Right;
 
-        public void HandleInput(Point newPosition)
+        public void HandleInput()
         {
-            if (InputKeyboard.KeyDown(Zoom.KeyIn))
-                Zoom.Scale += Zoom.Speed;
-            
-            else if (InputKeyboard.KeyDown(Zoom.KeyOut))
-                Zoom.Scale -= Zoom.Speed;
+            Zoom.HandleInput(keyboard);
 
-            Zoom.Scale = MathHelper.Clamp(Zoom.Scale, Zoom.MinZoom, Zoom.MaxZoom);
-
-            if (FreeMovement)
-            {
-                Vector2 newVector = Vector2.Zero;
-                if (InputKeyboard.KeyDown(Up))
-                    newVector = new Vector2(0, -1 * Speed);
-                else if (InputKeyboard.KeyDown(Down))
-                    newVector = new Vector2(0, 1 * Speed);
-                else if (InputKeyboard.KeyDown(Left))
-                    newVector = new Vector2(-1 * Speed, 0);
-                else if (InputKeyboard.KeyDown(Right))
-                    newVector = new Vector2(1 * Speed, 0);
-                Position = Vector2.Add(Position, newVector);
-            }
-
+            Vector2 newVector = Vector2.Zero;
+            if (keyboard.KeyDown(Up))
+                newVector = new Vector2(0, -1 * Speed);
+            else if (keyboard.KeyDown(Down))
+                newVector = new Vector2(0, 1 * Speed);
+            else if (keyboard.KeyDown(Left))
+                newVector = new Vector2(-1 * Speed, 0);
+            else if (keyboard.KeyDown(Right))
+                newVector = new Vector2(1 * Speed, 0);
+            Position = Vector2.Add(Position, newVector);
         }
+
+        public void HandleInput(Vector2 position)
+        {
+            Zoom.HandleInput(keyboard);
+
+            Position = position;
+        }
+
     }
 }
