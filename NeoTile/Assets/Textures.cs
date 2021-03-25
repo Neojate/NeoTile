@@ -9,20 +9,24 @@ using System.Threading.Tasks;
 namespace NeoTile.Assets
 {
     public class Textures
-    { 
-        private static Dictionary<string, Texture2D> myTextures = new Dictionary<string, Texture2D>();
+    {
+        private static Lazy<Textures> Lazy = new Lazy<Textures>(() => new Textures());
 
-        public static void AddTexture(string textureName, string fileRoute, ContentManager content)
+        public static Textures Instance { get { return Lazy.Value; } }
+
+        private Dictionary<string, Texture2D> myTextures = new Dictionary<string, Texture2D>();
+
+        public void AddTexture(string textureName, string fileRoute, ContentManager content)
         {
             myTextures.Add(textureName, content.Load<Texture2D>(fileRoute));
         }
 
-        public static Texture2D GetTexture(string textureName)
+        public Texture2D GetTexture(string textureName)
         {
             return myTextures[textureName];
         }
 
-        public static void RemoveTexture(string textureName)
+        public void RemoveTexture(string textureName)
         {
             myTextures.Remove(textureName);
         }

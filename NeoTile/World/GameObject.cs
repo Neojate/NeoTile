@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using NeoTile.Assets;
 
 namespace NeoTile.World
 {
@@ -17,7 +18,6 @@ namespace NeoTile.World
 
         public void Render(SpriteBatch spriteBatch, Camera.Camera camera)
         {
-            //spriteBatch.Draw(Texture, new Rectangle(Position.X, Position.Y, Size.Width, Size.Height), SourceRectangle, BgColor);
             spriteBatch.Draw(
                 Texture,
                 new Vector2(Position.X * TileOption.Size.Width * camera.Zoom.Scale - camera.Position.X, Position.Y * TileOption.Size.Height * camera.Zoom.Scale - camera.Position.Y),

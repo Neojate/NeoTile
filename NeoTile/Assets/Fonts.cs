@@ -10,19 +10,23 @@ namespace NeoTile.Assets
 {
     public class Fonts
     {
-        private static Dictionary<string, SpriteFont> myFonts = new Dictionary<string, SpriteFont>();
+        private static Lazy<Fonts> Lazy = new Lazy<Fonts>(() => new Fonts());
 
-        public static void AddFont(string fontName, string fileRoute, ContentManager content)
+        public static Fonts Instace { get { return Lazy.Value; } }
+
+        private Dictionary<string, SpriteFont> myFonts = new Dictionary<string, SpriteFont>();
+
+        public void AddFont(string fontName, string fileRoute, ContentManager content)
         {
             myFonts.Add(fontName, content.Load<SpriteFont>(fileRoute));
         }
 
-        public static SpriteFont GetFont(string fontName)
+        public SpriteFont GetFont(string fontName)
         {
             return myFonts[fontName];
         }
 
-        public static void RemoveFont(string fontName)
+        public void RemoveFont(string fontName)
         {
             myFonts.Remove(fontName);
         }
