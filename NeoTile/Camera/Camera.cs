@@ -1,7 +1,9 @@
 ﻿
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using NeoTile.Globals;
 using NeoTile.Input;
+using NeoTile.World;
 
 namespace NeoTile.Camera
 {
@@ -20,6 +22,8 @@ namespace NeoTile.Camera
 
         private InputKeyboard keyboard = InputKeyboard.Instance;
         private InputMouse mouse = InputMouse.Instance;
+
+        private Needs needs = Needs.Instance;
 
         public void HandleInput()
         {
@@ -41,7 +45,12 @@ namespace NeoTile.Camera
         {
             Zoom.HandleInput(keyboard);
 
-            Position = position;
+            position = Vector2.Multiply(position, new Vector2(TileOption.Size.Width, TileOption.Size.Height));
+
+            Vector2 posResolution = Vector2.Divide(needs.Resolution, 2);
+
+            Position = Vector2.Subtract(position, posResolution);
+
         }
 
     }

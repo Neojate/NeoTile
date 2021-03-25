@@ -6,6 +6,10 @@ namespace NeoTile.ScreenManager
 {
     public class ScreenManager
     {
+        private static Lazy<ScreenManager> Lazy = new Lazy<ScreenManager>(() => new ScreenManager());
+
+        public static ScreenManager Instance { get { return Lazy.Value; } }
+
         private List<Screen> screens = new List<Screen>();
 
         public void AddScreen(Screen newScreen)

@@ -9,7 +9,7 @@ namespace NeoTile.World
 
         public Rectangle SourceRectangle { get; set; }
 
-        public Point Position { get; set; }
+        public Vector2 Position { get; set; }
 
         public Size Size { get; set; }
 
