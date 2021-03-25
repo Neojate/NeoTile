@@ -6,6 +6,7 @@ namespace NeoTile
 {
     public class NeoTile
     {
+        //NuevoTile
         public NeoTile(Vector2 resolution)
         {
             Needs game = Needs.Instance;
