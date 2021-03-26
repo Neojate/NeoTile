@@ -50,12 +50,13 @@
     <Compile Include="Input\InputKeyboard.cs" />
     <Compile Include="Input\InputMouse.cs" />
     <Compile Include="Input\MouseButton.cs" />
+    <Compile Include="Objects\PlayerObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScreenManager\Screen.cs" />
     <Compile Include="ScreenManager\ScreenManager.cs" />
     <Compile Include="ScreenManager\ScreenState.cs" />
-    <Compile Include="World\GameObject.cs" />
-    <Compile Include="World\IRenderizable.cs" />
+    <Compile Include="Objects\GameObject.cs" />
+    <Compile Include="Objects\IRenderizable.cs" />
     <Compile Include="World\Size.cs" />
     <Compile Include="World\Tile.cs" />
     <Compile Include="World\TileOption.cs" />

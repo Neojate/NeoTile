@@ -1,8 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using NeoTile.Assets;
+using NeoTile.World;
 
-namespace NeoTile.World
+namespace NeoTile.Objects
 {
     public class GameObject : IRenderizable
     {
@@ -16,7 +16,7 @@ namespace NeoTile.World
 
         public Color BgColor { get; set; } = Color.White;
 
-        public void Render(SpriteBatch spriteBatch, Camera.Camera camera)
+        public virtual void Render(SpriteBatch spriteBatch, Camera.Camera camera)
         {
             spriteBatch.Draw(
                 Texture,

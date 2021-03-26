@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 
-namespace NeoTile.World
+namespace NeoTile.Objects
 {
     public interface IRenderizable
     {
