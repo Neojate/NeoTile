@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using NeoTile.Assets;
 using NeoTile.Input;
 using NeoTile.World;
 using System;
@@ -13,6 +14,8 @@ namespace NeoTile.Objects
         public Keys KeyMoveDown { get; set; } = Keys.S;
         public Keys KeyMoveLeft { get; set; } = Keys.A;
         public Keys KeyMoveRight { get; set; } = Keys.D;
+
+        protected Textures textures = Textures.Instance;
 
         private InputKeyboard keyboard = InputKeyboard.Instance;
 
