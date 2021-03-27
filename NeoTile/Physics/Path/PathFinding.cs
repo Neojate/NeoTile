@@ -13,7 +13,7 @@ namespace NeoTile.Physics.Path
         private List<Node> openNodes = new List<Node>();
         private List<Node> closedNodes = new List<Node>();
 
-        public List<Point> SearchPath(Point startPosition, Point endPosition, Tile[,] map)
+        public List<Vector2> SearchPath(Vector2 startPosition, Vector2 endPosition, Tile[,] map)
         {
             startNode   = new Node(startPosition);
             endNode     = new Node(endPosition);
@@ -52,7 +52,7 @@ namespace NeoTile.Physics.Path
                 }
             }
 
-            List<Point> finalPositions = new List<Point>();
+            List<Vector2> finalPositions = new List<Vector2>();
             while(currentNode != null)
             {
                 finalPositions.Add(currentNode.Position);

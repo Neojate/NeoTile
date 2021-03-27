@@ -10,7 +10,7 @@ namespace NeoTile.Physics.Path
 {
     public class Node
     {
-        public Point Position { get; set; }
+        public Vector2 Position { get; set; }
 
         public Node Parent { get; set; }
 
@@ -18,7 +18,7 @@ namespace NeoTile.Physics.Path
         public int G { get; set; }
         public int H { get; set; }
 
-        public Node(Point position)
+        public Node(Vector2 position)
         {
             Position = position;
         }
@@ -29,17 +29,17 @@ namespace NeoTile.Physics.Path
 
             for (int y = 0; y < 2; y++)
                 for (int x = 0; x < 2; x++)
-                    if (!(x == 0 && y == 0) && !map[Position.X, Position.Y].IsBlock)
-                        neighbourNodes.Add(new Node(new Point(Position.X + x, Position.Y + y)));
+                    if (!(x == 0 && y == 0) && !map[(int)Position.X, (int)Position.Y].IsBlock)
+                        neighbourNodes.Add(new Node(new Vector2(Position.X + x, Position.Y + y)));
 
             return neighbourNodes;
         }
 
         public void CalculateFGH(Node startNode, Node endNode)
         {
-            G = Math.Abs(Position.X - startNode.Position.X) + Math.Abs(Position.Y - startNode.Position.Y);
+            G = Math.Abs((int)(Position.X - startNode.Position.X)) + Math.Abs((int)(Position.Y - startNode.Position.Y));
 
-            H = Math.Abs(Position.X - endNode.Position.X) + Math.Abs(Position.Y - endNode.Position.Y);
+            H = Math.Abs((int)(Position.X - endNode.Position.X)) + Math.Abs((int)(Position.Y - endNode.Position.Y));
 
             F = G + H;
         }
