@@ -15,12 +15,15 @@ namespace NeoTile.Physics.Path
 
         public List<Vector2> SearchPath(Vector2 startPosition, Vector2 endPosition, Tile[,] map)
         {
-            startNode   = new Node(startPosition);
-            endNode     = new Node(endPosition);
+            startNode = new Node(startPosition);
+            endNode = new Node(endPosition);
+
+            openNodes = new List<Node>();
+            closedNodes = new List<Node>();
 
             openNodes.Add(startNode);
 
-            while(openNodes.Count > 0)
+            while (openNodes.Count > 0)
             {
                 currentNode = openNodes.OrderBy(node => node.F).First();
 
@@ -30,35 +33,34 @@ namespace NeoTile.Physics.Path
                 if (currentNode.Position == endPosition)
                     break;
 
-                foreach (Node neighbourdNode in currentNode.NeighbourNodes(map))
+                foreach (Node neighbourNode in currentNode.NeighbourNodes(map))
                 {
-                    if (closedNodes.FirstOrDefault(node => node.Position == neighbourdNode.Position) != null)
+                    if (closedNodes.FirstOrDefault(n => n.Position == neighbourNode.Position) != null)
                         continue;
 
-                    if (openNodes.FirstOrDefault(node => node.Position == neighbourdNode.Position) == null)
+                    if (openNodes.FirstOrDefault(n => n.Position == neighbourNode.Position) == null)
                     {
-                        openNodes.Add(neighbourdNode);
-                        neighbourdNode.Parent = currentNode;
-                        neighbourdNode.CalculateFGH(startNode, endNode);
+                        openNodes.Add(neighbourNode);
+                        neighbourNode.Parent = currentNode;
+                        neighbourNode.CalculateFGH(startNode, endNode);
                     }
                     else
                     {
-                        if (neighbourdNode.G < currentNode.G)
+                        if (neighbourNode.G < currentNode.G)
                         {
-                            neighbourdNode.Parent = currentNode;
-                            neighbourdNode.CalculateFGH(startNode, endNode);
+                            neighbourNode.Parent = currentNode;
+                            neighbourNode.CalculateFGH(startNode, endNode);
                         }
                     }
                 }
             }
 
             List<Vector2> finalPositions = new List<Vector2>();
-            while(currentNode != null)
+            while (currentNode != null)
             {
                 finalPositions.Add(currentNode.Position);
                 currentNode = currentNode.Parent;
             }
-
             return finalPositions;
         }
     }
