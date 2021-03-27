@@ -51,6 +51,8 @@
     <Compile Include="Input\MouseButton.cs" />
     <Compile Include="Main\NeoTileMain.cs" />
     <Compile Include="Objects\PlayerObject.cs" />
+    <Compile Include="Physics\Path\Node.cs" />
+    <Compile Include="Physics\Path\PathFinding.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScreenManager\Screen.cs" />
     <Compile Include="ScreenManager\ScreenManager.cs" />
