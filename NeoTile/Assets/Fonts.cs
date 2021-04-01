@@ -1,14 +1,11 @@
-﻿using Microsoft.Xna.Framework.Content;
+﻿
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NeoTile.Assets
 {
-    public class Fonts
+    public class Fonts : Asset
     {
         private static Lazy<Fonts> Lazy = new Lazy<Fonts>(() => new Fonts());
 
@@ -16,7 +13,7 @@ namespace NeoTile.Assets
 
         private Dictionary<string, SpriteFont> myFonts = new Dictionary<string, SpriteFont>();
 
-        public void AddFont(string fontName, string fileRoute, ContentManager content)
+        public void AddFont(string fontName, string fileRoute)
         {
             myFonts.Add(fontName, content.Load<SpriteFont>(fileRoute));
         }
