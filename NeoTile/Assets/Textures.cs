@@ -7,7 +7,7 @@ namespace NeoTile.Assets
 {
     public class Textures : Asset
     {
-        private static Lazy<Textures> Lazy = new Lazy<Textures>(() => new Textures());
+        private static readonly Lazy<Textures> Lazy = new Lazy<Textures>(() => new Textures());
 
         public static Textures Instance { get { return Lazy.Value; } }
 

@@ -7,7 +7,7 @@ namespace NeoTile.Assets
 {
     public class Fonts : Asset
     {
-        private static Lazy<Fonts> Lazy = new Lazy<Fonts>(() => new Fonts());
+        private static readonly Lazy<Fonts> Lazy = new Lazy<Fonts>(() => new Fonts());
 
         public static Fonts Instace { get { return Lazy.Value; } }
 
