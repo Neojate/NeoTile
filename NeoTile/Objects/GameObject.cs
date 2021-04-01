@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using NeoTile.World;
+using NeoTile.Types;
+using NeoTile.Worlds;
+using System.Collections.Generic;
 
 namespace NeoTile.Objects
 {
@@ -29,6 +31,23 @@ namespace NeoTile.Objects
                 SpriteEffects.None,
                 0f
             );
+        }
+
+        public virtual void Update()
+        {
+
+        }
+
+        public List<Vector2> NeighbourPositions()
+        {
+            List<Vector2> neighbours = new List<Vector2>();
+
+            for (int y = -1; y < 2; y++)
+                for (int x = -1; x < 2; x++)
+                    if (!(x == 0 && y == 0))
+                        neighbours.Add(new Vector2(Position.X + x, Position.Y + y));
+
+            return neighbours;
         }
     }
 }

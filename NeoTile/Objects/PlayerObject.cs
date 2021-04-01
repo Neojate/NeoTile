@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using NeoTile.Assets;
 using NeoTile.Input;
-using NeoTile.World;
+using NeoTile.Worlds;
 using System;
 
 namespace NeoTile.Objects

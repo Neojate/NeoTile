@@ -1,9 +1,9 @@
 ﻿
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using NeoTile.Camera;
+using NeoTile.Types;
 
-namespace NeoTile.World
+namespace NeoTile.Worlds
 {
     public class Tile
     {
@@ -19,6 +19,8 @@ namespace NeoTile.World
         public float Friction { get; set; } = TileOption.Friction;
 
         public bool IsBlock { get; set; } = false;
+
+        public bool IsVisible { get; set; }
 
         public Tile()
         {

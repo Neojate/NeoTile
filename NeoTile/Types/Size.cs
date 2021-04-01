@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using NeoTile.Exceptions;
 
-namespace NeoTile.World
+namespace NeoTile.Types
 {
     public class Size
     {

@@ -1,6 +1,6 @@
 ﻿
 using Microsoft.Xna.Framework;
-using NeoTile.World;
+using NeoTile.Worlds;
 using System;
 using System.Collections.Generic;
 using System.Linq;

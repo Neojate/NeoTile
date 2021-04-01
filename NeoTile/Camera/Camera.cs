@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using NeoTile.Globals;
 using NeoTile.Input;
-using NeoTile.World;
+using NeoTile.Worlds;
 
 namespace NeoTile.Camera
 {
