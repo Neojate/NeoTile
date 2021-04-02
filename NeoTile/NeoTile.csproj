@@ -50,6 +50,8 @@
     <Compile Include="Input\InputKeyboard.cs" />
     <Compile Include="Input\InputMouse.cs" />
     <Compile Include="Input\MouseButton.cs" />
+    <Compile Include="Language\Language.cs" />
+    <Compile Include="Language\LanguageType.cs" />
     <Compile Include="Main\NeoTileMain.cs" />
     <Compile Include="Objects\PlayerObject.cs" />
     <Compile Include="Physics\Path\Node.cs" />
@@ -67,9 +69,7 @@
     <Compile Include="Worlds\Tile.cs" />
     <Compile Include="Worlds\TileOption.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Language\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

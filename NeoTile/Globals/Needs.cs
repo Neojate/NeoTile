@@ -6,7 +6,7 @@ namespace NeoTile.Globals
 {
     public class Needs
     {
-        private static Lazy<Needs> Lazy = new Lazy<Needs>(() => new Needs());
+        private static readonly Lazy<Needs> Lazy = new Lazy<Needs>(() => new Needs());
 
         public static Needs Instance { get { return Lazy.Value; } }
 

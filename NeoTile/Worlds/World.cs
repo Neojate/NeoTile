@@ -12,6 +12,8 @@ namespace NeoTile.Worlds
 
         public List<GameObject> RemoveObjects { get; set; } = new List<GameObject>();
 
+        public List<string> Messages { get; set; } = new List<string>();
+
         public virtual void LoadWorld(string fileName)
         {
 
