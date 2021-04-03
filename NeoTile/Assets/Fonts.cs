@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace NeoTile.Assets
 {
-    public class Fonts : Asset
+    public sealed class Fonts : Asset
     {
         private static readonly Lazy<Fonts> Lazy = new Lazy<Fonts>(() => new Fonts());
 

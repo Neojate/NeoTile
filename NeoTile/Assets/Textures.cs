@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace NeoTile.Assets
 {
-    public class Textures : Asset
+    public sealed class Textures : Asset
     {
         private static readonly Lazy<Textures> Lazy = new Lazy<Textures>(() => new Textures());
 
