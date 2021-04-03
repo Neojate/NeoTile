@@ -1,5 +1,7 @@
 ﻿
-namespace NeoTile.World
+using NeoTile.Types;
+
+namespace NeoTile.Worlds
 {
     //Esta clase está pensada para poder tocar las opciones de los tiles en el constructor de la clase Tile.
     public class TileOption

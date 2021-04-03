@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using NeoTile.Globals;
 using NeoTile.Input;
-using NeoTile.World;
+using NeoTile.Worlds;
 
 namespace NeoTile.Camera
 {
@@ -30,6 +30,7 @@ namespace NeoTile.Camera
             Zoom.HandleInput(keyboard);
 
             Vector2 newVector = Vector2.Zero;
+
             if (keyboard.KeyDown(Up))
                 newVector = new Vector2(0, -1 * Speed);
             else if (keyboard.KeyDown(Down))
@@ -38,6 +39,7 @@ namespace NeoTile.Camera
                 newVector = new Vector2(-1 * Speed, 0);
             else if (keyboard.KeyDown(Right))
                 newVector = new Vector2(1 * Speed, 0);
+
             Position = Vector2.Add(Position, newVector);
         }
 

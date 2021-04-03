@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Input;
+﻿
+using Microsoft.Xna.Framework.Input;
 using System;
 
 namespace NeoTile.Input
@@ -12,13 +13,13 @@ namespace NeoTile.Input
         private static MouseState currentMouseState;
         private static MouseState lastMouseState;
 
-        public static void Update()
+        public void Update()
         {
             lastMouseState = currentMouseState;
             currentMouseState = Mouse.GetState();
         }
 
-        public static bool MouseDown(MouseButton button)
+        public bool MouseDown(MouseButton button)
         {
             switch(button)
             {
@@ -31,7 +32,7 @@ namespace NeoTile.Input
             }
         }
 
-        public static bool MouseClick(MouseButton button)
+        public bool MouseClick(MouseButton button)
         {
             switch(button)
             {

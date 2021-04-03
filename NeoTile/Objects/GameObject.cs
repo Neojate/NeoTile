@@ -1,8 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using NeoTile.Assets;
+using NeoTile.Types;
+using NeoTile.Worlds;
+using System.Collections.Generic;
 
-namespace NeoTile.World
+namespace NeoTile.Objects
 {
     public class GameObject : IRenderizable
     {
@@ -16,7 +18,7 @@ namespace NeoTile.World
 
         public Color BgColor { get; set; } = Color.White;
 
-        public void Render(SpriteBatch spriteBatch, Camera.Camera camera)
+        public virtual void Render(SpriteBatch spriteBatch, Camera.Camera camera)
         {
             spriteBatch.Draw(
                 Texture,
@@ -29,6 +31,23 @@ namespace NeoTile.World
                 SpriteEffects.None,
                 0f
             );
+        }
+
+        public virtual void Update()
+        {
+
+        }
+
+        public List<Vector2> NeighbourPositions()
+        {
+            List<Vector2> neighbours = new List<Vector2>();
+
+            for (int y = -1; y < 2; y++)
+                for (int x = -1; x < 2; x++)
+                    if (!(x == 0 && y == 0))
+                        neighbours.Add(new Vector2(Position.X + x, Position.Y + y));
+
+            return neighbours;
         }
     }
 }
