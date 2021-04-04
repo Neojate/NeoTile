@@ -35,12 +35,12 @@ namespace NeoTile.Main
             inputKeyboard = InputKeyboard.Instance;
             inputMouse = InputMouse.Instance;
 
-            //TODO: arranancamos los assets
-            textures = Textures.Instance;
-            textures.LinkContent(content);
-            
+            //arrancamos los assets (texturas, fuentes, sonidos, efectos)
             fonts = Fonts.Instace;
             fonts.LinkContent(content);
+
+            textures = Textures.Instance;
+            textures.LinkContent(content);
         }
 
         public void TranslatorData(string jsonName)
