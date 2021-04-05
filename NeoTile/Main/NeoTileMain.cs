@@ -17,8 +17,10 @@ namespace NeoTile.Main
         InputKeyboard inputKeyboard;
         InputMouse inputMouse;
 
-        Textures textures;
         Fonts fonts;
+        Textures textures;
+        Sounds sounds;
+        Effects effects;
 
         Translator translator;
 
@@ -41,6 +43,12 @@ namespace NeoTile.Main
 
             textures = Textures.Instance;
             textures.LinkContent(content);
+
+            sounds = Sounds.Instance;
+            sounds.LinkContent(content);
+
+            effects = Effects.Instance;
+            effects.LinkContent(content);
         }
 
         public void TranslatorData(string jsonName)

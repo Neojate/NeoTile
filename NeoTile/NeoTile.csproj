@@ -46,6 +46,7 @@
     <Compile Include="Assets\Asset.cs" />
     <Compile Include="Assets\Effects.cs" />
     <Compile Include="Assets\Fonts.cs" />
+    <Compile Include="Assets\SoundEffect.cs" />
     <Compile Include="Assets\Textures.cs" />
     <Compile Include="Camera\Camera.cs" />
     <Compile Include="Camera\Zoom.cs" />
