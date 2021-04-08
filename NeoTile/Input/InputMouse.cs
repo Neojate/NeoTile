@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using System;
 
@@ -10,8 +11,10 @@ namespace NeoTile.Input
 
         public static InputMouse Instance { get { return Lazy.Value; } }
 
-        private static MouseState currentMouseState;
-        private static MouseState lastMouseState;
+        private MouseState currentMouseState;
+        private MouseState lastMouseState;
+
+        public Vector2 Position { get { return new Vector2(currentMouseState.X, currentMouseState.Y); } }
 
         public void Update()
         {
