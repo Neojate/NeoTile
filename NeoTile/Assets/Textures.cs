@@ -11,21 +11,21 @@ namespace NeoTile.Assets
 
         public static Textures Instance { get { return Lazy.Value; } }
 
-        private Dictionary<string, Texture2D> myTextures = new Dictionary<string, Texture2D>();
+        private Dictionary<string, Texture2D> data = new Dictionary<string, Texture2D>();
 
         public void AddTexture(string textureName, string fileRoute)
         {
-            myTextures.Add(textureName, content.Load<Texture2D>(fileRoute));
+            data.Add(textureName, content.Load<Texture2D>(fileRoute));
         }
 
         public Texture2D GetTexture(string textureName)
         {
-            return myTextures[textureName];
+            return data[textureName];
         }
 
         public void RemoveTexture(string textureName)
         {
-            myTextures.Remove(textureName);
+            data.Remove(textureName);
         }
     }
 }

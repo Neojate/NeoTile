@@ -20,7 +20,9 @@ namespace NeoTile.Worlds
 
         public bool IsBlock { get; set; } = false;
 
-        public bool IsVisible { get; set; }
+        public bool IsVisible { get; set; } = false;
+
+        public bool StopVision { get; set; } = false;
 
         public Tile()
         {

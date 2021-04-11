@@ -1,5 +1,7 @@
 ﻿
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using NeoTile.Assets;
 
 namespace NeoTile.ScreenManager
 {
@@ -14,8 +16,17 @@ namespace NeoTile.ScreenManager
         //Shutdow: pantallas que van a cerrarse.
         public ScreenState State { get; set; } = ScreenState.Active;
 
+        //Instancia de las texturas
+        protected Textures fextures  { get; set; }
+
+        //Instancia de las fuentes
+        protected Fonts fonts { get; set; }
+
         //Instancia de la ScreenManager
         protected ScreenManager screenManager = ScreenManager.Instance;
+
+        //Medidas de la pantalla
+        protected Rectangle bounds { get; set; }
 
         //método abstracto necesario para la ejecución del input
         public abstract void HandleInput();

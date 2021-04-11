@@ -18,5 +18,10 @@ namespace NeoTile.Types
             Current = max;
             Total = max;
         }
+
+        public override string ToString()
+        {
+            return $"{Current} / {Total}";
+        }
     }
 }
