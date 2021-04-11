@@ -17,10 +17,10 @@ namespace NeoTile.ScreenManager
         public ScreenState State { get; set; } = ScreenState.Active;
 
         //Instancia de las texturas
-        protected Textures fextures  { get; set; }
+        protected Textures textures { get; set; } = Textures.Instance;
 
         //Instancia de las fuentes
-        protected Fonts fonts { get; set; }
+        protected Fonts fonts { get; set; } = Fonts.Instace;
 
         //Instancia de la ScreenManager
         protected ScreenManager screenManager = ScreenManager.Instance;
