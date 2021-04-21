@@ -29,7 +29,7 @@ namespace NeoTile.ScreenManager
         protected Rectangle bounds { get; set; }
 
         //Color de fondo de la pantalla
-        protected Color bgColor { get; set; }
+        protected Color bgColor { get; set; } = Color.White;
 
         //método abstracto necesario para la ejecución del input
         public abstract void HandleInput();
