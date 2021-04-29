@@ -51,6 +51,7 @@
     <Compile Include="Camera\Camera.cs" />
     <Compile Include="Camera\Zoom.cs" />
     <Compile Include="Exceptions\SizeException.cs" />
+    <Compile Include="Globals\Helper.cs" />
     <Compile Include="Globals\Needs.cs" />
     <Compile Include="Input\InputKeyboard.cs" />
     <Compile Include="Input\InputMouse.cs" />
