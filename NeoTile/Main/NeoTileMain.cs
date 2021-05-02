@@ -27,7 +27,7 @@ namespace NeoTile.Main
         public NeoTileMain(Vector2 resolution, ContentManager content)
         {
             //establecemos la resolución para la cámara
-            Needs needs = Needs.Instance;
+            GameOptions needs = GameOptions.Instance;
             needs.Resolution = resolution;
 
             //arrancamos el  ScreenManager

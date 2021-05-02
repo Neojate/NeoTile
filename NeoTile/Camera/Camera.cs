@@ -23,7 +23,7 @@ namespace NeoTile.Camera
         private InputKeyboard keyboard = InputKeyboard.Instance;
         private InputMouse mouse = InputMouse.Instance;
 
-        private Needs needs = Needs.Instance;
+        private GameOptions needs = GameOptions.Instance;
 
         public void HandleInput()
         {
