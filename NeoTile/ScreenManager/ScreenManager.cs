@@ -63,7 +63,7 @@ namespace NeoTile.ScreenManager
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            foreach (Screen screen in screens.FindAll(s => s.State == ScreenState.Active))
+            foreach (Screen screen in screens.FindAll(s => s.State != ScreenState.ShutDown))
                 screen.Draw(spriteBatch);
         }
 

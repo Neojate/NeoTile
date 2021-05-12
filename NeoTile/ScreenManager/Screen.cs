@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using NeoTile.Assets;
+using NeoTile.Input;
 
 namespace NeoTile.ScreenManager
 {
@@ -16,6 +17,12 @@ namespace NeoTile.ScreenManager
         //Shutdow: pantallas que van a cerrarse.
         public ScreenState State { get; set; } = ScreenState.Active;
 
+        //Medidas de la pantalla
+        protected Rectangle bounds { get; set; }
+
+        //Color de fondo de la pantalla
+        protected Color bgColor { get; set; } = Color.White;
+
         //Instancia de las texturas
         protected Textures textures { get; set; } = Textures.Instance;
 
@@ -23,10 +30,13 @@ namespace NeoTile.ScreenManager
         protected Fonts fonts { get; set; } = Fonts.Instace;
 
         //Instancia de la ScreenManager
-        protected ScreenManager screenManager = ScreenManager.Instance;
+        protected ScreenManager screenManager { get; set; } = ScreenManager.Instance;
 
-        //Medidas de la pantalla
-        protected Rectangle bounds { get; set; }
+        //Instancia del keyboard
+        protected InputKeyboard keyboard { get; } = InputKeyboard.Instance;
+
+        //Instancia del mouse
+        protected InputMouse mouse { get; } = InputMouse.Instance;
 
         //método abstracto necesario para la ejecución del input
         public abstract void HandleInput();

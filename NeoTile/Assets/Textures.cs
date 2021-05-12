@@ -13,9 +13,19 @@ namespace NeoTile.Assets
 
         private Dictionary<string, Texture2D> data = new Dictionary<string, Texture2D>();
 
+        public void AddTexture(string textureName)
+        {
+            data.Add(textureName, content.Load<Texture2D>($"images/{textureName}"));
+        }
+
         public void AddTexture(string textureName, string fileRoute)
         {
             data.Add(textureName, content.Load<Texture2D>(fileRoute));
+        }
+
+        public void AddTexture(string textureName, Texture2D texture)
+        {
+            data.Add(textureName, texture);
         }
 
         public Texture2D GetTexture(string textureName)

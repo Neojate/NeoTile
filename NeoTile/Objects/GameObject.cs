@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace NeoTile.Objects
 {
-    public class GameObject : IRenderizable
+    public class GameObject
     {
         public Texture2D Texture { get; set; }
 
@@ -31,11 +31,6 @@ namespace NeoTile.Objects
                 SpriteEffects.None,
                 0f
             );
-        }
-
-        public virtual void Update()
-        {
-
         }
 
         public List<Vector2> NeighbourPositions()
