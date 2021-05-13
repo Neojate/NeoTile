@@ -22,12 +22,12 @@ namespace NeoTile.Input
             currentMouseState = Mouse.GetState();
         }
 
-        public bool MouseClick()
+        public bool MouseDown()
         {
             return currentMouseState.LeftButton == ButtonState.Pressed;
         }
 
-        public bool MouseClick(MouseButton button)
+        public bool MouseDown(MouseButton button)
         {
             switch(button)
             {
@@ -40,19 +40,19 @@ namespace NeoTile.Input
             }
         }
 
-        public bool MouseDown()
+        public bool MouseClick()
         {
-            return MouseClick() && lastMouseState.LeftButton == ButtonState.Pressed;
+            return MouseDown() && lastMouseState.LeftButton == ButtonState.Pressed;
         }
 
-        public bool MouseDown(MouseButton button)
+        public bool MouseClick(MouseButton button)
         {
             switch(button)
             {
                 case MouseButton.Left:
-                    return MouseClick(button) && lastMouseState.LeftButton == ButtonState.Pressed;
+                    return MouseDown(button) && lastMouseState.LeftButton == ButtonState.Pressed;
                 case MouseButton.Right:
-                    return MouseClick(button) && lastMouseState.RightButton == ButtonState.Pressed;
+                    return MouseDown(button) && lastMouseState.RightButton == ButtonState.Pressed;
                 default:
                     return false;
             }
