@@ -10,6 +10,10 @@ namespace NeoTile.Globals
 
         public static GameOptions Instance { get { return Lazy.Value; } }
 
+        //Medidas de la Resolucion
         public Vector2 Resolution { get; set; }
+
+        //Medidas del Tile
+        public Vector2 TileSize { get; set; }
     }
 }
