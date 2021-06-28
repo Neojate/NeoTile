@@ -8,6 +8,8 @@ namespace NeoTile.ScreenManager
     {
         private static Lazy<ScreenManager> Lazy = new Lazy<ScreenManager>(() => new ScreenManager());
 
+        private string lastScreenName; 
+
         public static ScreenManager Instance { get { return Lazy.Value; } }
 
         private List<Screen> screens = new List<Screen>();
@@ -21,6 +23,12 @@ namespace NeoTile.ScreenManager
         {
             screens.ForEach(screen => screen.State = ScreenState.Hidden);
             screens.Add(newScreen);
+        }
+
+        public void AddScreenAndFocus(Screen newScreen, string lastScreenName)
+        {
+            this.lastScreenName = lastScreenName;
+            AddScreenAndFocus(newScreen);
         }
 
         public void RemoveScreen(Screen removeScreen)
@@ -40,6 +48,17 @@ namespace NeoTile.ScreenManager
                 if (screen.Name == removeName)
                     screen.State = ScreenState.ShutDown;
                 else if (screen.Name == focusScreen)
+                    screen.State = ScreenState.Active;
+            }
+        }
+
+        public void ReturnBack(Screen removeScreen)
+        {
+            foreach (Screen screen in screens)
+            {
+                if (screen.Name == removeScreen.Name)
+                    screen.State = ScreenState.ShutDown;
+                if (screen.Name == lastScreenName)
                     screen.State = ScreenState.Active;
             }
         }

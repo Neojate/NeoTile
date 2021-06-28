@@ -7,6 +7,11 @@ namespace NeoTile.Types
 
         public int Total { get; set; }
 
+        public CurrentTotal()
+        {
+
+        }
+
         public CurrentTotal(int current, int total)
         {
             Current = current;
