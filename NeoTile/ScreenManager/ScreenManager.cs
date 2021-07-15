@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 
@@ -63,7 +64,7 @@ namespace NeoTile.ScreenManager
             }
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             List<Screen> removeScreens = new List<Screen>();
 
@@ -76,7 +77,7 @@ namespace NeoTile.ScreenManager
             foreach (Screen screen in screens.FindAll(s => s.State == ScreenState.Active))
             {
                 screen.HandleInput();
-                screen.Update();
+                screen.Update(gameTime);
             }                
         }
 

@@ -1,4 +1,6 @@
 ﻿
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 
 namespace NeoTile.Globals
@@ -14,6 +16,16 @@ namespace NeoTile.Globals
                 clonedItem.GetType().GetProperty(property.Name).SetValue(newObject, value, null);
             }
             return (T)(object)newObject;
+        }
+
+        public static Vector2 CenterText(SpriteFont font, Rectangle bounds, string text)
+        {
+            Vector2 measureString = Vector2.Divide(font.MeasureString(text), 2);
+            
+            return new Vector2(
+                bounds.Width / 2 - measureString.X + bounds.X,
+                bounds.Height / 2 - measureString.Y + bounds.Y
+                );
         }
     }
 }

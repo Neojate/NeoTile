@@ -57,9 +57,9 @@ namespace NeoTile.Main
             translator.LoadJson(jsonName);
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
-            screenManager.Update();
+            screenManager.Update(gameTime);
 
             inputKeyboard.Update();
             inputMouse.Update();

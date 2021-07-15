@@ -18,8 +18,13 @@ namespace NeoTile.Objects
 
         public Color BgColor { get; set; } = Color.White;
 
+        private bool isDraw = true;
+
         public virtual void Render(SpriteBatch spriteBatch, Camera.Camera camera)
         {
+            if (!isDraw)
+                return;
+
             spriteBatch.Draw(
                 Texture,
                 new Vector2(Position.X * TileOption.Size.Width * camera.Zoom.Scale - camera.Position.X, Position.Y * TileOption.Size.Height * camera.Zoom.Scale - camera.Position.Y),
@@ -43,6 +48,11 @@ namespace NeoTile.Objects
                         neighbours.Add(new Vector2(Position.X + x, Position.Y + y));
 
             return neighbours;
+        }
+
+        public void ChangeVisibility()
+        {
+            isDraw = !isDraw;
         }
     }
 }

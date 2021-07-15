@@ -42,7 +42,7 @@ namespace NeoTile.ScreenManager
         public abstract void HandleInput();
 
         //método abstracto necesario para la actualización de la pantalla
-        public abstract void Update();
+        public abstract void Update(GameTime gameTime);
 
         //método abstracto necesario para el renderizado de la pantalla
         public abstract void Draw(SpriteBatch spriteBatch);
