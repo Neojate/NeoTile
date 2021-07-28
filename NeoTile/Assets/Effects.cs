@@ -13,6 +13,11 @@ namespace NeoTile.Assets
 
         public Dictionary<string, Effect> data = new Dictionary<string, Effect>();
 
+        public void AddEffect(string effectName)
+        {
+            data.Add(effectName, content.Load<Effect>($"effects/{effectName}"));
+        }
+
         public void AddEffect(string effectName, string fileRoute)
         {
             data.Add(effectName, content.Load<Effect>(fileRoute));

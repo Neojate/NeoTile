@@ -27,5 +27,14 @@ namespace NeoTile.Globals
                 bounds.Height / 2 - measureString.Y + bounds.Y
                 );
         }
+
+        public static Rectangle CenterScreen(Vector2 resolution, Vector2 dimensions)
+        {
+            return new Rectangle(
+                (int)(resolution.X / 2 - dimensions.X / 2),
+                (int)(resolution.Y / 2 - dimensions.Y / 2),
+                (int)dimensions.X,
+                (int)dimensions.Y);
+        }
     }
 }

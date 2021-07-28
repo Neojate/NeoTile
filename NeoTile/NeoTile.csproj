@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Animations\BaseAnimation.cs" />
+    <Compile Include="Animations\ImageAnimation.cs" />
     <Compile Include="Animations\TextAnimation.cs" />
     <Compile Include="Assets\Asset.cs" />
     <Compile Include="Assets\Effects.cs" />
