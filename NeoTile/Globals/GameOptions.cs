@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 
 namespace NeoTile.Globals
@@ -11,5 +12,7 @@ namespace NeoTile.Globals
         public static GameOptions Instance { get { return Lazy.Value; } }
 
         public Vector2 Resolution { get; set; }
+
+        public GraphicsDevice GraphicsDevice { get; set; }
     }
 }

@@ -20,7 +20,7 @@ namespace NeoTile.Assets
 
         public SpriteFont GetFont(string fontName)
         {
-            return myFonts[fontName];
+             return myFonts[fontName];
         }
 
         public void RemoveFont(string fontName)

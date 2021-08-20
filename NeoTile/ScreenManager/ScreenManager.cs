@@ -64,6 +64,11 @@ namespace NeoTile.ScreenManager
             }
         }
 
+        public void SetFocus(string screenName)
+        {
+            screens.Find(screen => screen.Name == screenName).State = ScreenState.Active;
+        }
+
         public void Update(GameTime gameTime)
         {
             List<Screen> removeScreens = new List<Screen>();

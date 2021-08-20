@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace NeoTile.Language
 {
@@ -22,14 +23,29 @@ namespace NeoTile.Language
 
         public string Translate(string code)
         {
+            try { return dictionary[code]; }
+            catch { return code; }
+        }
+
+        public string Translate(string code, Dictionary<string, string> variables)
+        {
             try
             {
-                return dictionary[code];
+                List<string> splittedText = dictionary[code].Split(' ').ToList();
+
+                string result = "";
+
+                splittedText.ForEach(split =>
+                {
+                    if (split[0] == ':')
+                        split = Translate(variables[split.Remove(0, 1)]);
+                    
+                    result += split + " ";
+                });
+
+                return result;
             }
-            catch (Exception e)
-            {
-                return code;
-            }
+            catch { return code; }
         }
     }
 }

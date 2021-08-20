@@ -24,11 +24,12 @@ namespace NeoTile.Main
 
         Translator translator;
 
-        public NeoTileMain(Vector2 resolution, ContentManager content)
+        public NeoTileMain(Vector2 resolution, ContentManager content, GraphicsDevice graphicsDevice)
         {
             //establecemos la resolución para la cámara
             GameOptions needs = GameOptions.Instance;
             needs.Resolution = resolution;
+            needs.GraphicsDevice = graphicsDevice;
 
             //arrancamos el  ScreenManager
             screenManager = ScreenManager.ScreenManager.Instance;
