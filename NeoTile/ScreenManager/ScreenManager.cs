@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NeoTile.ScreenManager
 {
@@ -9,7 +10,7 @@ namespace NeoTile.ScreenManager
     {
         private static Lazy<ScreenManager> Lazy = new Lazy<ScreenManager>(() => new ScreenManager());
 
-        private string lastScreenName; 
+        private List<string> historical = new List<string>();
 
         public static ScreenManager Instance { get { return Lazy.Value; } }
 
@@ -17,19 +18,20 @@ namespace NeoTile.ScreenManager
 
         public void AddScreen(Screen newScreen)
         {
+            historical.Add(newScreen.Name);
             screens.Add(newScreen);
         }
 
         public void AddScreenAndFocus(Screen newScreen)
         {
+            historical.Add(newScreen.Name);
             screens.ForEach(screen => screen.State = ScreenState.Hidden);
             screens.Add(newScreen);
         }
 
-        public void AddScreenAndFocus(Screen newScreen, string lastScreenName)
+        public void AddWithoutHistorical(Screen newScreen)
         {
-            this.lastScreenName = lastScreenName;
-            AddScreenAndFocus(newScreen);
+            screens.Add(newScreen);
         }
 
         public void RemoveScreen(Screen removeScreen)
@@ -53,13 +55,17 @@ namespace NeoTile.ScreenManager
             }
         }
 
-        public void ReturnBack(Screen removeScreen)
+        public void ReturnBack()
         {
+            string currentScreenName = historical.Last();
+            historical.Remove(currentScreenName);
+            string newScreenName = historical.Last();
             foreach (Screen screen in screens)
             {
-                if (screen.Name == removeScreen.Name)
+                if (screen.Name == currentScreenName)
                     screen.State = ScreenState.ShutDown;
-                if (screen.Name == lastScreenName)
+
+                if (screen.Name == newScreenName)
                     screen.State = ScreenState.Active;
             }
         }
