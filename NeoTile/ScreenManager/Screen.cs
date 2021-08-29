@@ -47,6 +47,5 @@ namespace NeoTile.ScreenManager
         //método abstracto necesario para el renderizado de la pantalla
         public abstract void Draw(SpriteBatch spriteBatch);
 
-
     }
 }

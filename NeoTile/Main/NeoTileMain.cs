@@ -22,7 +22,7 @@ namespace NeoTile.Main
         Sounds sounds;
         Effects effects;
 
-        Translator translator;
+        //Translator translator;
 
         public NeoTileMain(Vector2 resolution, ContentManager content, GraphicsDevice graphicsDevice)
         {
@@ -54,8 +54,8 @@ namespace NeoTile.Main
 
         public void TranslatorData(string jsonName)
         {
-            translator = Translator.Instance;
-            translator.LoadJson(jsonName);
+            //translator = Translator.Instance;
+            Translator.LoadJson(jsonName);
         }
 
         public void Update(GameTime gameTime)
