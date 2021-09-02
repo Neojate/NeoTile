@@ -18,12 +18,18 @@ namespace NeoTile.ScreenManager
 
         public void AddScreen(Screen newScreen)
         {
+            if (screens.Find(screen => screen.Name == newScreen.Name) != null)
+                return;
+
             historical.Add(newScreen.Name);
             screens.Add(newScreen);
         }
 
         public void AddScreenAndFocus(Screen newScreen)
         {
+            if (screens.Find(screen => screen.Name == newScreen.Name) != null)
+                return;
+
             historical.Add(newScreen.Name);
             screens.ForEach(screen => screen.State = ScreenState.Hidden);
             screens.Add(newScreen);
