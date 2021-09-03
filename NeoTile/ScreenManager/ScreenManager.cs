@@ -31,13 +31,24 @@ namespace NeoTile.ScreenManager
                 return;
 
             historical.Add(newScreen.Name);
-            screens.ForEach(screen => screen.State = ScreenState.Hidden);
+            screens
+                    .Where(screen => !screen.IsPartial)
+                    .ToList()
+                    .ForEach(screen => screen.State = ScreenState.Hidden);
             screens.Add(newScreen);
         }
 
         public void AddWithoutHistorical(Screen newScreen)
         {
             screens.Add(newScreen);
+        }
+
+        public void AddPartial(Screen partialScreen, Screen fatherScreen)
+        {
+            if (screens.Find(screen => screen.Name == partialScreen.Name) != null)
+                return;
+            partialScreen.IsPartial = true;
+            screens.Add(partialScreen);
         }
 
         public void RemoveScreen(Screen removeScreen)

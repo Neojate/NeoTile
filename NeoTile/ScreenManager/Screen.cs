@@ -38,6 +38,9 @@ namespace NeoTile.ScreenManager
         //Instancia del mouse
         protected InputMouse mouse { get; } = InputMouse.Instance;
 
+        //Variable que determina la actualización constante de la pantalla
+        public bool IsPartial { get; set; } = false;
+
         //método abstracto necesario para la ejecución del input
         public abstract void HandleInput();
 
