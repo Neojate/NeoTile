@@ -53,11 +53,13 @@ namespace NeoTile.ScreenManager
 
         public void RemoveScreen(Screen removeScreen)
         {
+            historical.Remove(removeScreen.Name);
             screens.Find(screen => screen.Name == removeScreen.Name).State = ScreenState.ShutDown;
         }
 
         public void RemoveScreen(String screenName)
         {
+            historical.Remove(screenName);
             screens.Find(screen => screen.Name == screenName).State = ScreenState.ShutDown;
         }
 

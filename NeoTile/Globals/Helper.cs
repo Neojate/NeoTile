@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections.Generic;
 
 namespace NeoTile.Globals
 {
@@ -36,5 +37,28 @@ namespace NeoTile.Globals
                 (int)dimensions.X,
                 (int)dimensions.Y);
         }
+
+        public static List<string> JustifyText(SpriteFont font, string text, int width)
+        {
+            if (font.MeasureString(text).X < width)
+                return new List<string>() { text };
+
+            List<string> results = new List<string>();
+            string result = "";
+            foreach (string word in text.Split(' '))
+            {
+                if (font.MeasureString($"{result} {word} ").X >= width)
+                {
+                    results.Add(result);
+                    result = "";
+                }
+
+                result += $"{word} ";
+            }
+            results.Add(result);
+
+            return results;
+        }
+
     }
 }
