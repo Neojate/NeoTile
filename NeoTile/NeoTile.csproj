@@ -44,8 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Animations\BaseAnimation.cs" />
+    <Compile Include="Animations\Fade.cs" />
     <Compile Include="Animations\ImageAnimation.cs" />
     <Compile Include="Animations\TextAnimation.cs" />
+    <Compile Include="Animations\Translation.cs" />
     <Compile Include="Assets\Asset.cs" />
     <Compile Include="Assets\Effects.cs" />
     <Compile Include="Assets\Fonts.cs" />
@@ -67,6 +69,8 @@
     <Compile Include="Physics\Path\PathFinding.cs" />
     <Compile Include="Physics\Raycast\RayCasting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Types\ObjectColor.cs" />
+    <Compile Include="Types\ObjectVector2.cs" />
     <Compile Include="Worlds\Player.cs" />
     <Compile Include="Worlds\World.cs" />
     <Compile Include="ScreenManager\Screen.cs" />
