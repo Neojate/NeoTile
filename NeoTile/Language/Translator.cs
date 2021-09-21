@@ -23,29 +23,27 @@ namespace NeoTile.Language
 
         public static string Translate(string code)
         {
-            try { return dictionary[code]; }
-            catch { return code; }
+            return dictionary.ContainsKey(code) ? dictionary[code] : code;
         }
 
         public static string Translate(string code, Dictionary<string, string> variables)
         {
-            try
+            if (!dictionary.ContainsKey(code))
+                return code;
+
+            List<string> splittedText = dictionary[code].Split(' ').ToList();
+
+            string result = "";
+
+            splittedText.ForEach(split =>
             {
-                List<string> splittedText = dictionary[code].Split(' ').ToList();
+                if (split[0] == ':')
+                    split = Translate(variables[split.Remove(0, 1)]);
 
-                string result = "";
+                result += $"{split} ";
+            });
 
-                splittedText.ForEach(split =>
-                {
-                    if (split[0] == ':')
-                        split = Translate(variables[split.Remove(0, 1)]);
-                    
-                    result += split + " ";
-                });
-
-                return result;
-            }
-            catch { return code; }
+            return result;
         }
     }
 }
