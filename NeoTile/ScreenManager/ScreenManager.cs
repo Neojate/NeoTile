@@ -117,9 +117,9 @@ namespace NeoTile.ScreenManager
                 screen.Draw(spriteBatch);
         }
 
-        public Screen GetScreen(string screenName)
+        public T GetScreen<T>(string screenName) where T : Screen 
         {
-            return screens.Find(screen => screen.Name == screenName);
+            return (T)screens.Find(screen => screen.Name == screenName);
         }
 
     }

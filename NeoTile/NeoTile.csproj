@@ -71,6 +71,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Types\ObjectColor.cs" />
     <Compile Include="Types\ObjectVector2.cs" />
+    <Compile Include="Types\Picture.cs" />
     <Compile Include="Worlds\Player.cs" />
     <Compile Include="Worlds\World.cs" />
     <Compile Include="ScreenManager\Screen.cs" />
