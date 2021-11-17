@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using NeoTile.Input;
 
 namespace NeoTile.Components
 {
@@ -10,6 +11,8 @@ namespace NeoTile.Components
         public Style Style;
 
         public Color CurrentBgColor, CurrentFontColor;
+
+        protected InputMouse mouse = InputMouse.Instance;
 
         public abstract void Render(SpriteBatch spriteBatch);
 

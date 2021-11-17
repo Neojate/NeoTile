@@ -13,8 +13,6 @@ namespace NeoTile.Components
 
         public Action OnPress;
 
-        public InputMouse mouse = InputMouse.Instance;
-
         public bool Enable = true;
 
         public override void HandleInput()
@@ -42,7 +40,13 @@ namespace NeoTile.Components
             if (!Enable)
                 return;
 
+            CurrentBgColor = Style.HoverBgColor.A != 0 && Bounds.Contains(mouse.Position)
+                ? Style.HoverBgColor
+                : Style.BgColor;
 
+            CurrentFontColor = Style.HoverFontColor.A != 0 && Bounds.Contains(mouse.Position)
+                ? Style.HoverFontColor
+                : Style.FontColor;
         }
     }
 }

@@ -59,6 +59,7 @@
     <Compile Include="Components\Component.cs" />
     <Compile Include="Components\Div.cs" />
     <Compile Include="Components\Label.cs" />
+    <Compile Include="Components\Overflow.cs" />
     <Compile Include="Components\Style.cs" />
     <Compile Include="Exceptions\SizeException.cs" />
     <Compile Include="Globals\Helper.cs" />

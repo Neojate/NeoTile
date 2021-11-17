@@ -17,8 +17,6 @@ namespace NeoTile.Components
         //Acción al dejar apretado el ratón
         public Action OnPress;
 
-        private InputMouse mouse = InputMouse.Instance;
-
         public override void HandleInput()
         {
             if (OnClick != null && mouse.MouseClick() && Bounds.Contains(mouse.Position))
@@ -39,16 +37,20 @@ namespace NeoTile.Components
 
         public override void Update(GameTime gameTime)
         {
-            if (Bounds.Contains(mouse.Position))
+            CurrentBgColor = Style.HoverBgColor.A != 0 && Bounds.Contains(mouse.Position) 
+                ? Style.HoverBgColor 
+                : Style.BgColor;
+
+            CurrentFontColor = Style.HoverFontColor.A != 0 && Bounds.Contains(mouse.Position) 
+                ? Style.HoverFontColor 
+                : Style.FontColor;
+
+            Children.ForEach(child =>
             {
-                CurrentBgColor = Style.HoverBgColor.A != 0 ? Style.HoverBgColor : Style.BgColor;
-                Children.ForEach(child => child.CurrentBgColor = CurrentBgColor);
-
-                CurrentFontColor = Style.HoverFontColor.A != 0 ? Style.HoverFontColor : Style.FontColor;
-                Children.ForEach(child => child.CurrentFontColor = CurrentFontColor);
-            }
-
-            Children.ForEach(child => child.Update(gameTime));
+                child.CurrentBgColor = CurrentBgColor;
+                child.CurrentFontColor = CurrentFontColor;
+                child.Update(gameTime);
+            });
         }
     }
 }

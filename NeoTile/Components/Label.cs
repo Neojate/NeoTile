@@ -20,7 +20,9 @@ namespace NeoTile.Components
 
         public override void Update(GameTime gameTime)
         {
-            CurrentFontColor = Style.HoverFontColor.A != 0 ? Style.HoverFontColor : Style.FontColor;
+            CurrentFontColor = Style.HoverFontColor.A != 0 && Bounds.Contains(mouse.Position) 
+                ? Style.HoverFontColor 
+                : Style.FontColor;
         }
     }
 }
