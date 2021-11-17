@@ -55,6 +55,11 @@
     <Compile Include="Assets\Textures.cs" />
     <Compile Include="Camera\Camera.cs" />
     <Compile Include="Camera\Zoom.cs" />
+    <Compile Include="Components\Button.cs" />
+    <Compile Include="Components\Component.cs" />
+    <Compile Include="Components\Div.cs" />
+    <Compile Include="Components\Label.cs" />
+    <Compile Include="Components\Style.cs" />
     <Compile Include="Exceptions\SizeException.cs" />
     <Compile Include="Globals\Helper.cs" />
     <Compile Include="Globals\GameOptions.cs" />
