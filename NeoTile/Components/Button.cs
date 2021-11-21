@@ -41,7 +41,7 @@ namespace NeoTile.Components
                     spriteFont: Style.Font,
                     text: Text,
                     position: Helper.CenterText(Style.Font, Bounds, Text),
-                    color: Enable ? Style.FontColor : Style.DisabledFontColor
+                    color: Enable ? CurrentFontColor : Style.DisabledFontColor
                 );
         }
 
