@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using NeoTile.Globals;
 using NeoTile.Input;
 using System;
 
@@ -32,7 +33,12 @@ namespace NeoTile.Components
             spriteBatch.Draw(Style.Texture, Bounds, CurrentBgColor);
 
             if (Text != null)
-                spriteBatch.DrawString(Style.Font, Text, new Vector2(Bounds.X, Bounds.Y), CurrentFontColor);
+                spriteBatch.DrawString(
+                    spriteFont: Style.Font,
+                    text: Text,
+                    position: Helper.CenterText(Style.Font, Bounds, Text),
+                    color: Enable ? Style.FontColor : Color.Red
+                );
         }
 
         public override void Update(GameTime gameTime)
