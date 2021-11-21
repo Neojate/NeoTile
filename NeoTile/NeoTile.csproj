@@ -55,6 +55,7 @@
     <Compile Include="Assets\Textures.cs" />
     <Compile Include="Camera\Camera.cs" />
     <Compile Include="Camera\Zoom.cs" />
+    <Compile Include="Components\Bar.cs" />
     <Compile Include="Components\Button.cs" />
     <Compile Include="Components\Component.cs" />
     <Compile Include="Components\Div.cs" />
