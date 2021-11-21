@@ -30,14 +30,18 @@ namespace NeoTile.Components
 
         public override void Render(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(Style.Texture, Bounds, CurrentBgColor);
+            spriteBatch.Draw(
+                texture: Style.Texture,
+                destinationRectangle: Bounds,
+                color: Enable ? CurrentBgColor : Style.DisabledBgColor
+            );
 
             if (Text != null)
                 spriteBatch.DrawString(
                     spriteFont: Style.Font,
                     text: Text,
                     position: Helper.CenterText(Style.Font, Bounds, Text),
-                    color: Enable ? Style.FontColor : Color.Red
+                    color: Enable ? Style.FontColor : Style.DisabledFontColor
                 );
         }
 
