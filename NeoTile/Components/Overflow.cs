@@ -20,8 +20,6 @@ namespace NeoTile.Components
 
         private OverflowDirection direction;
 
-        private int indexer;
-
         private WrapIndexer wrapIndexer;
 
         private int startDivY;
@@ -41,6 +39,9 @@ namespace NeoTile.Components
             if (divs.Count > 0)
                 areaSize = divs[0].Bounds.Height + wrap;
 
+            this.styleButton = styleButton;
+
+            int indexer = 0;
             wrapIndexer = new WrapIndexer() { Indexer = indexer };
             createInterface();
         }
@@ -71,6 +72,8 @@ namespace NeoTile.Components
                 }
                 y += areaSize;
             });
+
+            components.ForEach(component => component.Render(spriteBatch));
         }
 
         public override void Update(GameTime gameTime)
@@ -90,6 +93,8 @@ namespace NeoTile.Components
 
             if (totalItemHeight > maxBarHeight)
             {
+                components = new List<Component>();
+
                 components.Add(new Button()
                 {
                     Bounds = new Rectangle(Bounds.X + Bounds.Width - 15, Bounds.Y + 5, 10, 10),
