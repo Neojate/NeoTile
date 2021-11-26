@@ -14,7 +14,7 @@ namespace NeoTile.Components
     {
         private List<Div> divs;
 
-        private List<Component> components;
+        private List<Component> components = new List<Component>();
 
         private int areaSize = 0;
 
