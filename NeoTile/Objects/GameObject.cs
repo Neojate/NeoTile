@@ -2,13 +2,15 @@
 using Microsoft.Xna.Framework.Graphics;
 using NeoTile.Types;
 using NeoTile.Worlds;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace NeoTile.Objects
 {
     public class GameObject
     {
-        public Texture2D Texture { get; set; }
+        [JsonIgnore]
+        public Texture2D Texture;
 
         public Rectangle SourceRectangle { get; set; }
 
@@ -26,7 +28,7 @@ namespace NeoTile.Objects
                 return;
 
             spriteBatch.Draw(
-                Texture,
+                getTexture(),
                 new Vector2(Position.X * TileOption.Size.Width * camera.Zoom.Scale - camera.Position.X, Position.Y * TileOption.Size.Height * camera.Zoom.Scale - camera.Position.Y),
                 SourceRectangle,
                 BgColor,
@@ -62,5 +64,11 @@ namespace NeoTile.Objects
         {
             isDraw = !isDraw;
         }
+
+        protected virtual Texture2D getTexture()
+        {
+            return null;
+        }
+
     }
 }

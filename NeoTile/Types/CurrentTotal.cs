@@ -1,16 +1,11 @@
 ﻿
 namespace NeoTile.Types
 {
-    public class CurrentTotal
+    public struct CurrentTotal
     {
         public int Current { get; set; }
 
         public int Total { get; set; }
-
-        public CurrentTotal()
-        {
-
-        }
 
         public CurrentTotal(int current, int total)
         {

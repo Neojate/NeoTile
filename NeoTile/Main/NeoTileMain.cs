@@ -60,10 +60,10 @@ namespace NeoTile.Main
 
         public void Update(GameTime gameTime)
         {
-            screenManager.Update(gameTime);
-
             inputKeyboard.Update();
             inputMouse.Update();
+
+            screenManager.Update(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch)
