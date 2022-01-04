@@ -17,6 +17,9 @@ namespace NeoTile.ScreenManager
         //Shutdow: pantallas que van a cerrarse.
         public ScreenState State { get; set; } = ScreenState.Active;
 
+        //Variable que determina la actualización constante de la pantalla
+        public bool IsPartial { get; set; } = false;
+
         //Medidas de la pantalla
         protected Rectangle bounds { get; set; }
 
@@ -38,17 +41,23 @@ namespace NeoTile.ScreenManager
         //Instancia del mouse
         protected InputMouse mouse { get; } = InputMouse.Instance;
 
-        //Variable que determina la actualización constante de la pantalla
-        public bool IsPartial { get; set; } = false;
+        //Método para arrancar las pantallas
+        protected bool hasInitialized = false;
 
         //método abstracto necesario para la ejecución del input
         public abstract void HandleInput();
 
-        //método abstracto necesario para la actualización de la pantalla
+        //Método abstracto necesario para la actualización de la pantalla
         public abstract void Update(GameTime gameTime);
 
-        //método abstracto necesario para el renderizado de la pantalla
+        //Método abstracto necesario para el renderizado de la pantalla
         public abstract void Draw(SpriteBatch spriteBatch);
+
+        //Método para arrancar la pantalla fuera del controlador
+        protected virtual void init()
+        {
+            hasInitialized = true;
+        }
 
     }
 }

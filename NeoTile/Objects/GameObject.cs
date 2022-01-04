@@ -16,8 +16,6 @@ namespace NeoTile.Objects
 
         public Vector2 Position { get; set; }
 
-        public Size Size { get; set; }
-
         public Color BgColor { get; set; } = Color.White;
 
         private bool isDraw = true;
