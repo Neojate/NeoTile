@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using NeoTile.Globals;
 using NeoTile.Input;
 using NeoTile.Worlds;
+using System;
 
 namespace NeoTile.Camera
 {
@@ -53,6 +54,15 @@ namespace NeoTile.Camera
 
             Position = Vector2.Subtract(position, posResolution);
 
+        }
+
+        public void Shake(int power)
+        {
+            Random rnd = new Random();
+            int x = rnd.Next(power, power + 5);
+            int y = rnd.Next(power, power + 5) * -1;
+
+            Position = new Vector2(Position.X + x, Position.Y + y);
         }
 
     }

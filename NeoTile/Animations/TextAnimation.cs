@@ -2,7 +2,7 @@
 
 namespace NeoTile.Animations
 {
-    public class TextAnimation : BaseAnimation
+    public class TextAnimation : Animation
     {
 
         private int index = 0;

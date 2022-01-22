@@ -46,13 +46,6 @@ namespace NeoTile.Components
             createInterface();
         }
 
-        public override void HandleInput()
-        {
-            divs.ForEach(div => div.HandleInput());
-
-            components.ForEach(component => component.HandleInput());
-        }
-
         public override void Render(SpriteBatch spriteBatch)
         {
             int y = direction == OverflowDirection.Top

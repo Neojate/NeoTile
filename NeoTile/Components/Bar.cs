@@ -27,7 +27,12 @@ namespace NeoTile.Components
             barInitialPosition = new Vector2(bounds.X, bounds.Y);
         }
 
-        public override void HandleInput()
+        public override void Render(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(Style.Texture, Bounds, Style.BgColor);
+        }
+
+        public override void Update(GameTime gameTime)
         {
             if (mouse.MouseDown() && Bounds.Contains(mouse.Position))
             {
@@ -47,16 +52,6 @@ namespace NeoTile.Components
                     Bounds.Y = deltaY;
                 }
             }
-        }
-
-        public override void Render(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Draw(Style.Texture, Bounds, Style.BgColor);
-        }
-
-        public override void Update(GameTime gameTime)
-        {
-            
         }
     }
 }

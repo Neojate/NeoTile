@@ -3,7 +3,7 @@ using System;
 
 namespace NeoTile.Animations
 {
-    public class ImageAnimation : BaseAnimation
+    public class ImageAnimation : Animation
     {
         private int frames = 0;
 

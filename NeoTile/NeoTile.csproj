@@ -43,11 +43,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Animations\BaseAnimation.cs" />
-    <Compile Include="Animations\Fade.cs" />
+    <Compile Include="Animations\Animation.cs" />
+    <Compile Include="Animations\FadeAnimation.cs" />
     <Compile Include="Animations\ImageAnimation.cs" />
     <Compile Include="Animations\TextAnimation.cs" />
-    <Compile Include="Animations\Translation.cs" />
+    <Compile Include="Animations\TranslationAnimation.cs" />
+    <Compile Include="Animations\WrapNumber.cs" />
     <Compile Include="Assets\Asset.cs" />
     <Compile Include="Assets\Effects.cs" />
     <Compile Include="Assets\Fonts.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Components\Label.cs" />
     <Compile Include="Components\Overflow.cs" />
     <Compile Include="Components\Style.cs" />
+    <Compile Include="Components\TextArea.cs" />
     <Compile Include="Exceptions\SizeException.cs" />
     <Compile Include="Globals\Helper.cs" />
     <Compile Include="Globals\GameOptions.cs" />
@@ -72,7 +74,6 @@
     <Compile Include="Language\Translator.cs" />
     <Compile Include="Language\LanguageType.cs" />
     <Compile Include="Main\NeoTileMain.cs" />
-    <Compile Include="Objects\PlayerObject.cs" />
     <Compile Include="Physics\Path\Node.cs" />
     <Compile Include="Physics\Path\PathFinding.cs" />
     <Compile Include="Physics\Raycast\RayCasting.cs" />
@@ -80,7 +81,6 @@
     <Compile Include="Types\ObjectColor.cs" />
     <Compile Include="Types\ObjectVector2.cs" />
     <Compile Include="Types\Picture.cs" />
-    <Compile Include="Worlds\Player.cs" />
     <Compile Include="Worlds\World.cs" />
     <Compile Include="ScreenManager\Screen.cs" />
     <Compile Include="ScreenManager\ScreenManager.cs" />

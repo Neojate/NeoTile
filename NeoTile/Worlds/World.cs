@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using NeoTile.Objects;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NeoTile.Worlds
 {
@@ -27,6 +28,11 @@ namespace NeoTile.Worlds
         {
             RemoveObjects.ForEach(element => GameObjects.Remove(element));
             RemoveObjects = new List<GameObject>();
+        }
+
+        public List<T> GetElements<T>() where T : GameObject
+        {
+            return GameObjects.Where(gameObject => gameObject is T).Cast<T>().ToList();
         }
 
         public Tile GetTile(Vector2 position)

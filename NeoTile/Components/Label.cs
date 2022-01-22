@@ -8,11 +8,6 @@ namespace NeoTile.Components
         //Texto del label
         public string Text;
 
-        public override void HandleInput()
-        {
-            
-        }
-
         public override void Render(SpriteBatch spriteBatch)
         {
             spriteBatch.DrawString(Style.Font, Text, new Vector2(Bounds.X, Bounds.Y), CurrentFontColor);

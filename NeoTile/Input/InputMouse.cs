@@ -16,6 +16,8 @@ namespace NeoTile.Input
 
         public Vector2 Position { get { return new Vector2(currentMouseState.X, currentMouseState.Y); } }
 
+        public Vector2 TilePosition { get { return new Vector2((int)(Position.X / 32), (int)(Position.Y / 32)); } }
+
         public void Update()
         {
             lastMouseState = currentMouseState;

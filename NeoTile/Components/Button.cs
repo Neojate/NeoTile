@@ -16,18 +16,6 @@ namespace NeoTile.Components
 
         public bool Enable = true;
 
-        public override void HandleInput()
-        {
-            if (!Enable)
-                return;
-
-            if (OnClick != null && mouse.MouseClick() && Bounds.Contains(mouse.Position))
-                OnClick();
-
-            if (OnPress != null && mouse.MouseDown() && Bounds.Contains(mouse.Position))
-                OnPress();
-        }
-
         public override void Render(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(
@@ -50,13 +38,18 @@ namespace NeoTile.Components
             if (!Enable)
                 return;
 
-            CurrentBgColor = Style.HoverBgColor.A != 0 && Bounds.Contains(mouse.Position)
-                ? Style.HoverBgColor
-                : Style.BgColor;
+            if (Bounds.Contains(mouse.Position))
+            {
+                if (OnClick != null && mouse.MouseClick())
+                    OnClick();
 
-            CurrentFontColor = Style.HoverFontColor.A != 0 && Bounds.Contains(mouse.Position)
-                ? Style.HoverFontColor
-                : Style.FontColor;
+                if (OnPress != null && mouse.MouseDown())
+                    OnPress();
+            }
+
+            CurrentBgColor = Style.HoverBgColor.A != 0 && Bounds.Contains(mouse.Position) ? Style.HoverBgColor : Style.BgColor;
+            CurrentFontColor = Style.HoverFontColor.A != 0 && Bounds.Contains(mouse.Position) ? Style.HoverFontColor : Style.FontColor;
+
         }
     }
 }

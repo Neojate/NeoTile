@@ -17,17 +17,6 @@ namespace NeoTile.Components
         //Acción al dejar apretado el ratón
         public Action OnPress;
 
-        public override void HandleInput()
-        {
-            if (OnClick != null && mouse.MouseClick() && Bounds.Contains(mouse.Position))
-                OnClick();
-
-            if (OnPress != null && mouse.MouseDown() && Bounds.Contains(mouse.Position))
-                OnPress();
-
-            Children.ForEach(child => child.HandleInput());
-        }
-
         public override void Render(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(Style.Texture, Bounds, CurrentBgColor);
@@ -37,14 +26,18 @@ namespace NeoTile.Components
 
         public override void Update(GameTime gameTime)
         {
-            CurrentBgColor = Style.HoverBgColor.A != 0 && Bounds.Contains(mouse.Position) 
-                ? Style.HoverBgColor 
-                : Style.BgColor;
+            if (Bounds.Contains(mouse.Position))
+            {
+                if (OnClick != null && mouse.MouseClick())
+                    OnClick();
 
-            CurrentFontColor = Style.HoverFontColor.A != 0 && Bounds.Contains(mouse.Position) 
-                ? Style.HoverFontColor 
-                : Style.FontColor;
+                if (OnPress != null && mouse.MouseDown())
+                    OnPress();
+            }
 
+            CurrentBgColor = Style.HoverBgColor.A != 0 && Bounds.Contains(mouse.Position) ? Style.HoverBgColor : Style.BgColor;
+            CurrentFontColor = Style.HoverFontColor.A != 0 && Bounds.Contains(mouse.Position) ? Style.HoverFontColor : Style.FontColor;
+            
             Children.ForEach(child =>
             {
                 child.CurrentBgColor = CurrentBgColor;

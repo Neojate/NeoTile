@@ -44,9 +44,6 @@ namespace NeoTile.ScreenManager
         //Método para arrancar las pantallas
         protected bool hasInitialized = false;
 
-        //método abstracto necesario para la ejecución del input
-        public abstract void HandleInput();
-
         //Método abstracto necesario para la actualización de la pantalla
         public abstract void Update(GameTime gameTime);
 

@@ -105,10 +105,7 @@ namespace NeoTile.ScreenManager
                 screens.Remove(screen);
 
             foreach (Screen screen in screens.FindAll(s => s.State == ScreenState.Active))
-            {
-                screen.HandleInput();
-                screen.Update(gameTime);
-            }                
+                screen.Update(gameTime);         
         }
 
         public void Draw(SpriteBatch spriteBatch)

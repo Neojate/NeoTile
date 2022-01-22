@@ -22,7 +22,7 @@ namespace NeoTile.Components
             this.weight = weight;
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Render(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture, new Rectangle(bounds.X, bounds.Y, bounds.Width, weight), color);
             spriteBatch.Draw(texture, new Rectangle(bounds.X, bounds.Y + bounds.Height - weight, bounds.Width, weight), color);
