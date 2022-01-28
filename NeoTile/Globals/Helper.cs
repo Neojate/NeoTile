@@ -26,7 +26,17 @@ namespace NeoTile.Globals
             return new Vector2(
                 bounds.Width / 2 - measureString.X + bounds.X,
                 bounds.Height / 2 - measureString.Y + bounds.Y
-                );
+            );
+        }
+
+        public static Vector2 CenterText(SpriteFont font, Vector2 position, string text)
+        {
+            Vector2 measureString = Vector2.Divide(font.MeasureString(text), 2);
+
+            return new Vector2(
+                position.X - measureString.X / 2,
+                position.Y - measureString.Y / 2
+            );
         }
 
         public static Rectangle CenterScreen(Vector2 resolution, Vector2 dimensions)

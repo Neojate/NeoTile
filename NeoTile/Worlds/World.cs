@@ -40,5 +40,10 @@ namespace NeoTile.Worlds
             return Map[(int)position.X, (int)position.Y];
         }
 
+        public Tile GetTile(int x, int y)
+        {
+            return Map[x, y];
+        }
+
     }
 }

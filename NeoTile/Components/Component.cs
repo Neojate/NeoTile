@@ -1,10 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using NeoTile.Input;
+using NeoTile.ScreenManager;
 
 namespace NeoTile.Components
 {
-    public abstract class Component
+    public abstract class Component : IRenderizable
     {
         public Rectangle Bounds;
 
