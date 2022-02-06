@@ -20,6 +20,8 @@ namespace NeoTile.Objects
 
         private bool isDraw = true;
 
+        protected Vector2 frame = Vector2.Zero;
+
         public virtual void Render(SpriteBatch spriteBatch, Camera.Camera camera)
         {
             if (!isDraw)

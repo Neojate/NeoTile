@@ -30,6 +30,13 @@ namespace NeoTile.Input
             return currentKeyState.IsKeyDown(key) && lastKeyState.IsKeyUp(key);
         }
 
+        public Keys GetKey()
+        {
+            Keys[] keys = currentKeyState.GetPressedKeys();
+            if (keys.Length == 1)
+                return keys[0];
+            return Keys.None;
+        }
         
     }
 }

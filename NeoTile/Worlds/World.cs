@@ -1,5 +1,4 @@
-﻿
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using NeoTile.Objects;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,5 +44,14 @@ namespace NeoTile.Worlds
             return Map[x, y];
         }
 
+        public bool IsInMap(Vector2 position)
+        {
+            return new Rectangle(0, 0, Map.GetLength(0), Map.GetLength(1)).Contains(position);
+        }
+
+        public bool IsInMap(int x, int y)
+        {
+            return IsInMap(new Vector2(x, y));
+        }
     }
 }

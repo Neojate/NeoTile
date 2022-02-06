@@ -17,6 +17,9 @@ namespace NeoTile.Components
         //Acción al dejar apretado el ratón
         public Action OnPress;
 
+        //Acción al pasar por encima
+        public Action OnHover;
+
         public override void Render(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(Style.Texture, Bounds, CurrentBgColor);
@@ -28,6 +31,8 @@ namespace NeoTile.Components
         {
             if (Bounds.Contains(mouse.Position))
             {
+                OnHover?.Invoke();
+
                 if (OnClick != null && mouse.MouseClick())
                     OnClick();
 
